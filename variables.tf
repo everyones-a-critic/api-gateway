@@ -7,3 +7,7 @@ variable "cognito_pools" {
   description = "List of the Amazon Cognito user pool ARNs that will be provided api access via the authorizer"
   default     = ["arn:aws:cognito-idp:us-west-1:081924037451:userpool/us-west-1_SygBe8yTB"]
 }
+
+variable "route_53_zone_id" {
+  description = "The hosted zone id from route 53 for the custom domain"
+}
