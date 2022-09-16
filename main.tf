@@ -20,7 +20,7 @@ resource "aws_api_gateway_authorizer" "cognito" {
   name          = "cognito"
   rest_api_id   = aws_api_gateway_rest_api.main.id
   type          = "COGNITO_USER_POOLS"
-  provider_arns = [data.tfe_outputs.cognito.values.congito_pool_id]
+  provider_arns = [data.tfe_outputs.cognito.values.congito_pool_arn]
 }
 
 resource "aws_api_gateway_deployment" "main" {
