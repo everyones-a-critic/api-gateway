@@ -2,6 +2,12 @@ provider "aws" {
   region = var.region
 }
 
+data "tfe_outputs" "api_gateway" {
+  organization = "everyones-a-critic"
+  workspace    = "cognito"
+}
+
+
 resource "aws_api_gateway_rest_api" "main" {
   name = "everyones-a-critic"
 
@@ -14,7 +20,7 @@ resource "aws_api_gateway_authorizer" "cognito" {
   name          = "cognito"
   rest_api_id   = aws_api_gateway_rest_api.main.id
   type          = "COGNITO_USER_POOLS"
-  provider_arns = var.cognito_pools
+  provider_arns = [data.tfe_outputs.cognito.values.congito_pool_id]
 }
 
 resource "aws_api_gateway_deployment" "main" {
