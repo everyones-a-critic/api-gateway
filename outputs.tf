@@ -7,5 +7,5 @@ output "root_resource_id" {
 }
 
 output "authorizer_id" {
-    value = aws_api_gateway_authorizer.main.id
+    value = aws_api_gateway_authorizer.cognito.id
 }
