@@ -2,7 +2,7 @@ provider "aws" {
   region = var.region
 }
 
-data "tfe_outputs" "api_gateway" {
+data "tfe_outputs" "cognito" {
   organization = "everyones-a-critic"
   workspace    = "cognito"
 }
